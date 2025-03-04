@@ -47,7 +47,7 @@ const Fabricpendingreport = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('https://apitextilediwanji.work.gd:5000/fabricpendingreportdata', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd/fabricpendingreportdata', { withCredentials: true })
             .then(res => {
 
 
@@ -83,7 +83,7 @@ const Fabricpendingreport = ({ isLoggedIn, setIsLoggedIn }) => {
         }
 
 
-        axios.put('https://apitextilediwanji.work.gd:5000/beamsolved', values, { withCredentials: true })
+        axios.put('https://apitextilediwanji.work.gd/beamsolved', values, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "solved") {
                     successalert("Beam status solved");

@@ -42,7 +42,7 @@ const Payrollprint = () => {
 
         setLoading(true)
 
-        axios.get(`https://apitextilediwanji.work.gd:5000/payroll/report?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd/payroll/report?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 //console.log(res.data)
                 setPayrolldetails(res.data);

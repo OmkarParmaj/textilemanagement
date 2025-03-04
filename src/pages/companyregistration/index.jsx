@@ -57,7 +57,7 @@ const CompanyRegistration = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handleeditfetchdata = (srno) => {
-        axios.get(`https://apitextilediwanji.work.gd:5000/handleeditfetchdata/${srno}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd/handleeditfetchdata/${srno}`, { withCredentials: true })
             .then(res => {
 
                 setCname(res.data[0].companyname);
@@ -89,7 +89,7 @@ const CompanyRegistration = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
 
-        axios.put(`https://apitextilediwanji.work.gd:5000/handleeditedsubmit/${srno}`, values, { withCredentials: true })
+        axios.put(`https://apitextilediwanji.work.gd/handleeditedsubmit/${srno}`, values, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "updated success") {
@@ -159,7 +159,7 @@ const CompanyRegistration = ({ isLoggedIn, setIsLoggedIn }) => {
     const fetchdata = async () => {
         try {
             setLoading(true)
-            const res = await axios.get('https://apitextilediwanji.work.gd:5000/companyreport', { withCredentials: true })
+            const res = await axios.get('https://apitextilediwanji.work.gd/companyreport', { withCredentials: true })
             setComdata(res.data);
             setLoading(false);
 
@@ -190,7 +190,7 @@ const CompanyRegistration = ({ isLoggedIn, setIsLoggedIn }) => {
         formData.append('gst', values.gst);
         formData.append('file', file);
 
-        axios.post('https://apitextilediwanji.work.gd:5000/companyregister', formData, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd/companyregister', formData, { withCredentials: true })
             .then(res => {
                 setValues({
                     companyname: "",
@@ -213,7 +213,7 @@ const CompanyRegistration = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handledelete = (id) => {
-        axios.delete(`https://apitextilediwanji.work.gd:5000/companydelete/${id}`, { withCredentials: true })
+        axios.delete(`https://apitextilediwanji.work.gd/companydelete/${id}`, { withCredentials: true })
             .then((res) => {
                 fetchdata();
             })
@@ -353,7 +353,7 @@ const CompanyRegistration = ({ isLoggedIn, setIsLoggedIn }) => {
                                                                 {comdata.map((company, index) => (
                                                                     <tr key={index}>
                                                                         <td>{company.companyname}</td>
-                                                                        <td><img src={`https://apitextilediwanji.work.gd:5000/companyimage/${company.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={` ${index}`} /></td>
+                                                                        <td><img src={`https://apitextilediwanji.work.gd/companyimage/${company.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={` ${index}`} /></td>
                                                                         <td>{company.personname}</td>
                                                                         <td>
                                                                             <button className='btn btn-primary btn-sm ' data-bs-toggle="modal"

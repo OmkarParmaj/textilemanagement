@@ -45,7 +45,7 @@ const Signup = () => {
 
                 const email = values.Email;
 
-                const res = await axios.post('https://apitextilediwanji.work.gd:5000/sendotp', { email, newPin }, { withCredentials: true });
+                const res = await axios.post('https://apitextilediwanji.work.gd/sendotp', { email, newPin }, { withCredentials: true });
 
                 if (res.data.message === "send") {
 
@@ -128,7 +128,7 @@ const Signup = () => {
 
         else if (otp == verify) {
 
-            axios.post('https://apitextilediwanji.work.gd:5000/customer', values, {
+            axios.post('https://apitextilediwanji.work.gd/customer', values, {
                 withCredentials: true
             })
                 .then(result => {

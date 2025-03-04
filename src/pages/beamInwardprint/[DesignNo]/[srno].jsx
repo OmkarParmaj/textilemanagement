@@ -28,7 +28,7 @@ const BeamInwardPrint = () => {
     const fetchdata = async () => {
 
         try {
-            const res = await axios.get(`https://apitextilediwanji.work.gd:5000/beaminwardprintnew/${DesignNo}/${srno}`, {
+            const res = await axios.get(`https://apitextilediwanji.work.gd/beaminwardprintnew/${DesignNo}/${srno}`, {
                 withCredentials: true
             })
             // console.log(res.data)
@@ -69,7 +69,7 @@ const BeamInwardPrint = () => {
                         <div className="row">
                             <div className="col-4 col-md-2 border-end border-bottom  d-flex justify-content-center align-items-center ">
 
-                                {bdata && <img src={`https://apitextilediwanji.work.gd:5000/companyimage/${bdata.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${bdata.filenameas}`} ></img>}
+                                {bdata && <img src={`https://apitextilediwanji.work.gd/companyimage/${bdata.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${bdata.filenameas}`} ></img>}
                             </div>
                             <div className="col-8 col-md-10 border-bottom ">
                                 {bdata && <h3 className="m-0 text-center">{bdata.companyname}</h3>}

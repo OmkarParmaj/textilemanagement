@@ -45,7 +45,7 @@ const Companybedit = ({ isLoggedIn, setIsLoggedIn }) => {
     const fetchdata = async () => {
         try {
             setLoading(true)
-            const res = await axios.get(`https://apitextilediwanji.work.gd:5000/companybankedit/${srno}`, { withCredentials: true });
+            const res = await axios.get(`https://apitextilediwanji.work.gd/companybankedit/${srno}`, { withCredentials: true });
             console.log(res.data[0].bankname)
             if (res.data.length > 0) {
                 setBankDetails({
@@ -80,7 +80,7 @@ const Companybedit = ({ isLoggedIn, setIsLoggedIn }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.put(`https://apitextilediwanji.work.gd:5000/companybanked/${srno}`, bankDetails, { withCredentials: true })
+        axios.put(`https://apitextilediwanji.work.gd/companybanked/${srno}`, bankDetails, { withCredentials: true })
             .then(res => {
                 // toast.success("Bank details updated successfully.", { position: "top-center", autoClose: 2000, closeOnClick: true });
                 successalert("Bank details updated successfully!");

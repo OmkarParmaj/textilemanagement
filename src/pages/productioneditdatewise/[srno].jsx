@@ -59,7 +59,7 @@ const ProductionEditDatewise = ({ isLoggedIn, setIsLoggedIn }) => {
 
         setLoading(true)
 
-        axios.get(`https://apitextilediwanji.work.gd:5000/get_productiondata_editone/${srno}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd/get_productiondata_editone/${srno}`, { withCredentials: true })
             .then(res => {
                 //   //console.log(res.data)
 
@@ -247,7 +247,7 @@ const ProductionEditDatewise = ({ isLoggedIn, setIsLoggedIn }) => {
             totalprice
         }
 
-        axios.put(`https://apitextilediwanji.work.gd:5000/productioneditput/${srno}`, payload, { withCredentials: true })
+        axios.put(`https://apitextilediwanji.work.gd/productioneditput/${srno}`, payload, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "production updated") {
                     // toast.success("Production updated successfully", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -264,7 +264,7 @@ const ProductionEditDatewise = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
 
-        // axios.post('https://apitextilediwanji.work.gd:5000/production2', payload2, { withCredentials: true })
+        // axios.post('https://apitextilediwanji.work.gd/production2', payload2, { withCredentials: true })
         //     .then(res => {
         //         if (res.data.message === "data insrted") {
         //             toast.success("Production is uploaded", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -284,7 +284,7 @@ const ProductionEditDatewise = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const fetchShiftData = () => {
-        axios.get('https://apitextilediwanji.work.gd:5000/getshiftdata', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd/getshiftdata', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 setShiftdata(res.data);

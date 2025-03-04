@@ -62,7 +62,7 @@ const YarnInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
     const fetchyarndata = () => {
 
         setLoading(true)
-        axios.get("https://apitextilediwanji.work.gd:5000/yarninwardreport", { withCredentials: true })
+        axios.get("https://apitextilediwanji.work.gd/yarninwardreport", { withCredentials: true })
             .then(res => {
                 // console.log(res.data);
                 setFetchdata(res.data);
@@ -76,7 +76,7 @@ const YarnInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     const handledelete = (sryarn) => {
-        axios.delete(`https://apitextilediwanji.work.gd:5000/yarninwarddelete/${sryarn}`, { withCredentials: true })
+        axios.delete(`https://apitextilediwanji.work.gd/yarninwarddelete/${sryarn}`, { withCredentials: true })
             .then((res) => {
                 fetchyarndata();
                 setModalId(null);

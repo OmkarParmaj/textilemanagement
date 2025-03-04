@@ -42,7 +42,7 @@ const PartyEdit = ({ isLoggedIn, setIsLoggedIn }) => {
 
     // const handlesubmit = (e) => {
     //     e.preventDefault();
-    //     axios.post('https://apitextilediwanji.work.gd:5000/party', values)
+    //     axios.post('https://apitextilediwanji.work.gd/party', values)
     //         .then(res => {
     //             console.log(res.data);
     //             if (res.data.message === "Data inserted") {
@@ -56,7 +56,7 @@ const PartyEdit = ({ isLoggedIn, setIsLoggedIn }) => {
     // }
 
     useEffect(() => {
-        axios.get(`https://apitextilediwanji.work.gd:5000/partyedit/${srno}`, {withCredentials: true})
+        axios.get(`https://apitextilediwanji.work.gd/partyedit/${srno}`, {withCredentials: true})
             .then(res => {
                 // console.log(res.data);
                 setValues({
@@ -86,7 +86,7 @@ const PartyEdit = ({ isLoggedIn, setIsLoggedIn }) => {
     const handlesubmit = (e) => {
         e.preventDefault();
 
-        axios.put(`https://apitextilediwanji.work.gd:5000/partyedit/${srno}`, values, {withCredentials: true})
+        axios.put(`https://apitextilediwanji.work.gd/partyedit/${srno}`, values, {withCredentials: true})
             .then(res => {
                 if (res.data.message === "party updated") {
                     // toast.success("Party details updated successful", { position: "top-center", autoClose: 2000, closeOnClick: true });

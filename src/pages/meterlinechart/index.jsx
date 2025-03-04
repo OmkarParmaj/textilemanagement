@@ -33,7 +33,7 @@ const Meterlinechart = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('https://apitextilediwanji.work.gd:5000/productiondashboard', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd/productiondashboard', { withCredentials: true })
             .then(res => {
                 setLoading(false);
                 const mydata = res.data;

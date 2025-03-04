@@ -39,7 +39,7 @@ const Packingprint = () => {
 
     const fetchdata = async (Packingslipno, uid) => {
         try {
-            const res = await axios.get(`https://apitextilediwanji.work.gd:5000/packingprint/${Packingslipno}/${uid}`, { withCredentials: true });
+            const res = await axios.get(`https://apitextilediwanji.work.gd/packingprint/${Packingslipno}/${uid}`, { withCredentials: true });
             setPackingslipData(res.data[0]);
             setTotalmtr(res.data[0].toalmtr);
             const safedata = JSON.parse(res.data[0].packingdata);
@@ -60,7 +60,7 @@ const Packingprint = () => {
 
     const sendPackslip = () => {
         setLoading(true);
-        axios.post("https://apitextilediwanji.work.gd:5000/mailpackslip", { url }, { withCredentials: true })
+        axios.post("https://apitextilediwanji.work.gd/mailpackslip", { url }, { withCredentials: true })
             .then(() => {
                 // toast.success("Packing slip sent", { position: "top-center", autoClose: 2000, closeOnClick: true });
                 successalert("Packing slip sent")
@@ -103,7 +103,7 @@ const Packingprint = () => {
                         <div className="container-fluid border border-1" >
                             <div className="row">
                                 <div className="col-4 col-md-2 border-bottom border-end d-flex justify-content-center align-items-center ">
-                                    {<img className="logomobile" src={`https://apitextilediwanji.work.gd:5000/companyimage/${packingslipData.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${packingslipData.filenameas}`} ></img> || <Skeleton></Skeleton>}
+                                    {<img className="logomobile" src={`https://apitextilediwanji.work.gd/companyimage/${packingslipData.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${packingslipData.filenameas}`} ></img> || <Skeleton></Skeleton>}
                                 </div>
                                 <div className="col-8 col-md-10 border-bottom " >
                                     <h3 className="m-0 text-center companymobile">{packingslipData.company || <Skeleton />}</h3>

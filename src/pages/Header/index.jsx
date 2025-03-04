@@ -37,7 +37,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('https://apitextilediwanji.work.gd:5000/headerinfo', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd/headerinfo', { withCredentials: true })
             .then(res => {
                 const company = res.data[0].Name;
                 // console.log(res.data);
@@ -58,7 +58,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     //     setLoading(true)
 
     //     try {
-    //         const res = await axios.post('https://apitextilediwanji.work.gd:5000/logout', {}, { withCredentials: true });
+    //         const res = await axios.post('https://apitextilediwanji.work.gd/logout', {}, { withCredentials: true });
 
     //         setIsLoggedIn(false);
     //         // window.location.href = '/loggedout';

@@ -16,7 +16,7 @@ const Yarngatepassimage = ({ isLoggedIn }) => {
     //     return <Navigate to="/login" replace />;
     // }
 
-    const fileUrl = `https://apitextilediwanji.work.gd:5000/yarninwardimages/${filename}`;
+    const fileUrl = `https://apitextilediwanji.work.gd/yarninwardimages/${filename}`;
 
 
     const auth = Authentication();

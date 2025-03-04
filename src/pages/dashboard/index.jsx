@@ -152,7 +152,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
   useEffect(() => {
-    axios.get('https://apitextilediwanji.work.gd:5000/fabricpendingreportdata', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/fabricpendingreportdata', { withCredentials: true })
       .then(res => {
         const fabricpendingdata = res.data;
         const filtereddata = fabricpendingdata.filter(item => item.fabricpercentage < 85 && item.designsolved === "unsolved");
@@ -174,7 +174,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
   }, [])
 
   const fetchdata = () => {
-    axios.get('https://apitextilediwanji.work.gd:5000/beaminwardreport', {
+    axios.get('https://apitextilediwanji.work.gd/beaminwardreport', {
       withCredentials: true
     })
       .then((res) => {
@@ -210,7 +210,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
   useEffect(() => {
-    axios.get('https://apitextilediwanji.work.gd:5000/loomstatusdata', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/loomstatusdata', { withCredentials: true })
       .then(res => {
         // //console.log(res)
 
@@ -257,7 +257,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
   useEffect(() => {
-    axios.get('https://apitextilediwanji.work.gd:5000/billdisplaydashboard', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/billdisplaydashboard', { withCredentials: true })
       .then(res => {
         // //console.log(res.data);
 
@@ -272,7 +272,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
   useEffect(() => {
-    axios.get('https://apitextilediwanji.work.gd:5000/totalpaidbillsdashboard', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/totalpaidbillsdashboard', { withCredentials: true })
       .then(res => {
 
         const paid = res.data[0].totalpaid;
@@ -292,7 +292,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
   useEffect(() => {
 
-    axios.get('https://apitextilediwanji.work.gd:5000/billreport2', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/billreport2', { withCredentials: true })
       .then(res => {
         // //console.log(res.data)
         setAmo(res.data[0].total_amount);
@@ -303,7 +303,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
   }, [])
 
   useEffect(() => {
-    axios.get('https://apitextilediwanji.work.gd:5000/bill2', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/bill2', { withCredentials: true })
       .then(res => {
         // //console.log(res.data[0])
         setPending(res.data[0].pending);
@@ -319,7 +319,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
   useEffect(() => {
 
-    axios.get('https://apitextilediwanji.work.gd:5000/productiondashboard', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/productiondashboard', { withCredentials: true })
       .then(res => {
 
 
@@ -382,7 +382,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
   useEffect(() => {
 
-    axios.get('https://apitextilediwanji.work.gd:5000/board2', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/board2', { withCredentials: true })
       .then(res => {
         // //console.log(res.data);
         setChart(res.data);
@@ -394,7 +394,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
   }, [])
 
   useEffect(() => {
-    axios.get('https://apitextilediwanji.work.gd:5000/sizingmtr', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/sizingmtr', { withCredentials: true })
       .then(res => {
         // //console.log(res.data);
         const size = res.data[0].sizingmeter;
@@ -408,7 +408,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
   useEffect(() => {
 
-    axios.get('https://apitextilediwanji.work.gd:5000/totalmtrinproduction', { withCredentials: true })
+    axios.get('https://apitextilediwanji.work.gd/totalmtrinproduction', { withCredentials: true })
       .then(res => {
         // //console.log(res.data);
         setMtr(res.data[0].Totalmeter);

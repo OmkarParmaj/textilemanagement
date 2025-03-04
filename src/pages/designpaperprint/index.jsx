@@ -20,7 +20,7 @@ const Designpaperprint = ({ isLoggedIn, setIsLoggedIn }) => {
     // const filename = filenameWithPrefix ? filenameWithPrefix.replace(/^designpaper\\/, '') : '';
 
     // Construct the file URL
-    const fileUrl = `https://apitextilediwanji.work.gd:5000/designpaper/${filename}`;
+    const fileUrl = `https://apitextilediwanji.work.gd/designpaper/${filename}`;
 
     const auth = Authentication();
  
