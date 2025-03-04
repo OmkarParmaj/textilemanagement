@@ -1,65 +1,38 @@
-
-import axios from 'axios'
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-// import ReactApexChart from 'react-apexcharts';
-
-import dynamic from 'next/dynamic';
 import Authentication from '../components/authentication';
-
-const ReactApexChart = dynamic(() => import('react-apexcharts'), {
-  ssr: false,  // Disable server-side rendering for this component
-});
-
-
-
 
 const Lineareachart = () => {
     const [bills, setBills] = useState([]);
     const [chartOptions, setChartOptions] = useState({});
     const [chartSeries, setChartSeries] = useState([]);
     const [loading, setLoading] = useState(false);
-
-
-
-
+    const [apexChartLoaded, setApexChartLoaded] = useState(false); // Track if ApexCharts is loaded
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true);
         axios.get('http://api.textilediwanji.com/productiondashboard', { withCredentials: true })
             .then(res => {
-
-
-
                 const mydata = res.data;
-
-
-
-                setLoading(false)
-
-
+                setLoading(false);
 
                 const billing = mydata.map(ind => ({
                     date: ind.date,
                     bill: ind.bill
-
-                }))
+                }));
 
                 if (billing) {
                     const mappedbill = billing.map(item => ({
                         date: new Date(item.date).toLocaleDateString('en-GB'),
                         value: item.bill || null
-                    }))
-                    //console.log(mappedbill)
+                    }));
 
                     const billmap = mappedbill.reduce((acc, item) => {
                         acc[item.date] = item.value;
                         return acc;
                     }, {});
 
-                    //console.log(billmap);
                     setBills(billmap);
-
                 }
 
                 const billMap = new Map(billing.map(item => [item.date, item.bill]));
@@ -68,11 +41,10 @@ const Lineareachart = () => {
                 const dates = billing.map(item => item.date);
                 const billdata = dates.map(date => billMap.get(date) || null);
 
-                // Separate configuration for chart options
+                // Chart options configuration
                 const options = {
                     chart: {
                         type: 'area',
-
                     },
                     dataLabels: {
                         enabled: false
@@ -102,7 +74,7 @@ const Lineareachart = () => {
                     colors: ['#00E396']
                 };
 
-                // Separate configuration for chart series
+                // Chart series configuration
                 const series = [
                     {
                         name: 'Billing Amount',
@@ -113,61 +85,56 @@ const Lineareachart = () => {
                 // Update state with options and series
                 setChartOptions(options);
                 setChartSeries(series);
-
-
-
-
             })
             .catch(err => {
                 console.error('API error:', err);
             });
     }, []);
 
-
+    // Authentication check
     const auth = Authentication();
- 
-
     if (!auth) {
-      return null;
-  }
+        return null;
+    }
+
+    // Dynamically load the ApexCharts library from CDN
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/apexcharts';
+        script.onload = () => {
+            setApexChartLoaded(true); // Mark as loaded when script is ready
+        };
+        document.body.appendChild(script);
+    }, []);
+
+    // Wait until the script is loaded before rendering the chart
+    useEffect(() => {
+        if (apexChartLoaded && chartOptions && chartSeries.length > 0) {
+            const chart = new window.ApexCharts(document.querySelector("#chart"), chartOptions);
+            chart.render();
+        }
+    }, [apexChartLoaded, chartOptions, chartSeries]);
 
     return (
         <>
-
             {
-                loading ?
+                loading ? (
                     <div className='row' style={{ height: "350px" }}>
                         <div className="d-flex justify-content-center">
                             <div className="spinner-border" role="status">
                                 <span className="visually-hidden">Loading...</span>
                             </div>
                         </div>
-
-                    </div> :
-                    <div className=''>
-
-
-                        <ReactApexChart
-                            options={chartOptions}
-                            series={chartSeries}
-                            type="area"
-                            height={350}
-                        />
-
-
                     </div>
-
+                ) : (
+                    <div>
+                        {/* Create a container for the chart */}
+                        <div id="chart" style={{ height: 350 }}></div>
+                    </div>
+                )
             }
-
-
-
-
-
         </>
     );
-    ;
-}
-
-
+};
 
 export default Lineareachart;

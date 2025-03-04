@@ -55,17 +55,17 @@ const Reco = () => {
 
     // const [secreatekey, setSecreatekey] = useState("omkaryouwillwin");
 
+    const secreatekey = "omkaryouwillwin"
+    // const query = new URLSearchParams(location.search);
+   setno =  Decrypt(setno, secreatekey);
+   designno =  Decrypt2(designno, secreatekey);
+   recoemail =  Decrypt2(recoemail, secreatekey);
 
     useEffect(() => {
 
 
 
 
-        const secreatekey = "omkaryouwillwin"
-        // const query = new URLSearchParams(location.search);
-       setno =  Decrypt(setno, secreatekey);
-       designno =  Decrypt2(designno, secreatekey);
-       recoemail =  Decrypt2(recoemail, secreatekey);
         // const emailid = query.get('emailid');
         // setSetno(setnumber)
         // setDesignno(designnumber)

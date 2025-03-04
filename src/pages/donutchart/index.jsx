@@ -1,126 +1,110 @@
 import React, { useEffect, useState } from 'react';
-// import ApexCharts from 'react-apexcharts';
-
 import dynamic from 'next/dynamic';
-
-const apexcharts = dynamic(() => import('react-apexcharts'), {
-  ssr: false,  // Disable server-side rendering for this component
-});
-
 import axios from 'axios';
 import Authentication from '../components/authentication';
 
-
-
-
-
+// Dynamically load the ApexCharts library (client-side only)
 const Donutchart = () => {
-    const [readytodispatch, setReadytodispatch] = useState(0);
-    const [onloom, setOnloom] = useState(0)
-    const [onfloor, setOnFloor] = useState(0)
-    const [undermending, setUndermending] = useState(0);
-    const [loading, setLoading] = useState(false);
+  const [readytodispatch, setReadytodispatch] = useState(0);
+  const [onloom, setOnloom] = useState(0);
+  const [onfloor, setOnFloor] = useState(0);
+  const [undermending, setUndermending] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [apexChartLoaded, setApexChartLoaded] = useState(false);
 
-
-
-
-    useEffect(() => {
-        setLoading(true);
-
-        axios.get('http://api.textilediwanji.com/beaminward', { withCredentials: true })
-            .then(res => {
-                //console.log(res.data)
-
-                const data = res.data;
-                const countOnLoom = data.filter(item => item.beamstatus === "Ready to dispatch").length;
-                const countonloom = data.filter(item => item.beamstatus === "on loom").length;
-                const countonfloor = data.filter(item => item.beamstatus === "on floor").length;
-                const countundermending = data.filter(item => item.beamstatus === "under mending").length
-
-                setLoading(false);
-
-
-                setReadytodispatch(countOnLoom)
-                setOnloom(countonloom);
-                setOnFloor(countonfloor);
-                setUndermending(countundermending);
-
-
-
-
-
-            })
-            .catch(err => {
-                //console.log(err);
-            })
-    }, [])
-
-
-    const options = {
-        series: [readytodispatch, onloom, onfloor, undermending], // Series data as an array of numbers
-        chart: {
-            type: 'donut',
-        },
-        responsive: [{
-            // breakpoint: 480,
-            // options: {
-            //     chart: {
-            //         width: 100
-            //     }
-            // }
-        }],
-        labels: ['Ready to Dispatch', 'On Loom', 'On Floor', 'Under Mending'],
-        legend: {
-            show: false // Hide the legend
-        },
-        dataLabels: {
-            enabled: false // Hide data labels
-        }
+  useEffect(() => {
+    // Dynamically load ApexCharts script from CDN
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/apexcharts';
+    script.onload = () => {
+      setApexChartLoaded(true);  // Mark that the script has been loaded
     };
+    document.body.appendChild(script);
 
-    // Define the chart's type and height
-    const chartType = 'donut';
-    const chartHeight = 350; // You can adjust this value
+    setLoading(true);
 
-    const auth = Authentication();
- 
+    axios.get('http://api.textilediwanji.com/beaminward', { withCredentials: true })
+      .then(res => {
+        const data = res.data;
+        const countOnLoom = data.filter(item => item.beamstatus === "Ready to dispatch").length;
+        const countonloom = data.filter(item => item.beamstatus === "on loom").length;
+        const countonfloor = data.filter(item => item.beamstatus === "on floor").length;
+        const countundermending = data.filter(item => item.beamstatus === "under mending").length;
 
-    if (!auth) {
-      return null;
+        setLoading(false);
+
+        setReadytodispatch(countOnLoom);
+        setOnloom(countonloom);
+        setOnFloor(countonfloor);
+        setUndermending(countundermending);
+      })
+      .catch(err => {
+        // Handle error
+      });
+
+  }, []);
+
+  const options = {
+    series: [readytodispatch, onloom, onfloor, undermending],
+    chart: {
+      type: 'donut',
+    },
+    labels: ['Ready to Dispatch', 'On Loom', 'On Floor', 'Under Mending'],
+    legend: {
+      show: false,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+  };
+
+  const chartType = 'donut';
+  const chartHeight = 350;
+
+  const auth = Authentication();
+
+  if (!auth) {
+    return null;
   }
 
+  if (!apexChartLoaded) {
+    // Wait until the script is loaded
     return (
-        <>
-            {
-                loading ?
-                    <div className='row' style={{ height: "350px" }}>
-                        <div className="d-flex justify-content-center">
-                            <div className="spinner-border" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-
-                    </div> :
-                    <div>
-                        <apexcharts
-                            options={options}
-                            series={options.series}
-                            type={chartType}
-                            height={chartHeight}
-                        />
-                    </div>
-
-
-            }
-
-
-
-
-
-
-        </>
+      <div className="row" style={{ height: '350px' }}>
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
     );
-}
+  }
 
+  // Create chart after script load
+  useEffect(() => {
+    if (apexChartLoaded) {
+      const chart = new window.ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    }
+  }, [apexChartLoaded, options]);
 
-export default Donutchart
+  return (
+    <div>
+      {
+        loading ? (
+          <div className="row" style={{ height: '350px' }}>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div id="chart" style={{ height: chartHeight }}></div>
+        )
+      }
+    </div>
+  );
+};
+
+export default Donutchart;

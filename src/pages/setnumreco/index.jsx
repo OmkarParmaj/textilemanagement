@@ -86,7 +86,7 @@ const Setnumreco = () => {
 
 
 
-    }, [])
+    }, [setno, recoemail])
 
 
 
@@ -107,7 +107,7 @@ const Setnumreco = () => {
             .catch(err => {
                 // console.log(err);
             })
-    }, [setno, designno])
+    }, [setno, designno, recoemail])
 
 
     useEffect(() => {
@@ -172,7 +172,7 @@ const Setnumreco = () => {
         };
 
         fetchData();
-    }, [setno]);
+    }, [setno, designno, recoemail]);
 
 
 
@@ -306,7 +306,7 @@ const Setnumreco = () => {
             .catch(err => {
                 // console.log(err);
             })
-    }, [setno, designno])
+    }, [setno, designno, recoemail])
 
 
 
