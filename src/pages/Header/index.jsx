@@ -76,15 +76,6 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
 
-    // };
-
-    // if (isLoggedIn === false) {
-    //     return <Navigate to='/login' replace></Navigate>
-    // }
-
-
-
-
     // const handlelogout = () => {
     //     setLoading(true);
     //     Cookies.remove('token');
