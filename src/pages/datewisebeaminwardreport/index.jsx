@@ -67,7 +67,7 @@ const Datewisebeaminwardreport = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = () => {
         setLoading2(true)
-        axios.get(`http://api.textilediwanji.com/datewisebeaminwardreport/data?startdate=${startdate}&enddate=${enddate}`, {
+        axios.get(`http://api.textilediwanji.com:5000/datewisebeaminwardreport/data?startdate=${startdate}&enddate=${enddate}`, {
             withCredentials: true
         })
             .then((res) => {
@@ -104,7 +104,7 @@ const Datewisebeaminwardreport = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     const handledelete = (DesignNo) => {
-        axios.delete(`http://api.textilediwanji.com/delete/${DesignNo}`, { withCredentials: true })
+        axios.delete(`http://api.textilediwanji.com:5000/delete/${DesignNo}`, { withCredentials: true })
             .then((res) => {
                 fetchdata();
                 setModalId(null); // Reset modal ID after deletion
@@ -124,7 +124,7 @@ const Datewisebeaminwardreport = ({ isLoggedIn, setIsLoggedIn }) => {
         setLoading(true);
         const heyurl = `https://www.textilediwanji.com/reco?setno=${setno}&designno=${Designno}&recoemail=${remail}`;
 
-        axios.post("http://api.textilediwanji.com/mailreconsile", { heyurl }, { withCredentials: true })
+        axios.post("http://api.textilediwanji.com:5000/mailreconsile", { heyurl }, { withCredentials: true })
             .then(() => {
 
                 // toast.success("Reconsilation slip sent", { position: "top-center", autoClose: 2000, closeOnClick: true });

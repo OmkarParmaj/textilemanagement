@@ -12,7 +12,7 @@ const Payslip = () => {
 
     useEffect(() => {
         if (enumber && startdate && enddate) {
-            axios.get(`http://api.textilediwanji.com/payslip/${enumber}/${startdate}/${enddate}`, { withCredentials: true })
+            axios.get(`http://api.textilediwanji.com:5000/payslip/${enumber}/${startdate}/${enddate}`, { withCredentials: true })
                 .then(res => {
                     setPayslipdetails(res.data[0]);
                     console.log(res.data);

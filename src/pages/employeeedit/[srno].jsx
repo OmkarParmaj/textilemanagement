@@ -42,7 +42,7 @@ const Employeeedit = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get(`http://api.textilediwanji.com/employeeedit/${srno}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/employeeedit/${srno}`, { withCredentials: true })
             .then(res => {
                 // console.log(res.data);
                 const mydate = inputdateformat(res.data[0].date);
@@ -84,7 +84,7 @@ const Employeeedit = ({ isLoggedIn, setIsLoggedIn }) => {
             monthsalaryfix: monthsalaryfix
         }
 
-        axios.put(`http://api.textilediwanji.com/employeeeditput/${srno}`, values, {withCredentials:true} )
+        axios.put(`http://api.textilediwanji.com:5000/employeeeditput/${srno}`, values, {withCredentials:true} )
         .then(res => {
 
             if(res.data.message === "Employee data updated") {

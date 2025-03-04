@@ -30,7 +30,7 @@ const PasswordRecovery = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com/getpassword', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/getpassword', { withCredentials: true })
             .then(res => {
                 setPass(res.data[0].Password);
             })
@@ -49,7 +49,7 @@ const PasswordRecovery = ({ isLoggedIn, setIsLoggedIn }) => {
             }
 
             else {
-                axios.put('http://api.textilediwanji.com/recoverpassword', { password }, { withCredentials: true })
+                axios.put('http://api.textilediwanji.com:5000/recoverpassword', { password }, { withCredentials: true })
                     .then(res => {
                         if (res.data.message === "Password changed") {
                             setPassword("");

@@ -41,7 +41,7 @@ const Addemployeeprint = () => {
     const fechemployee = () => {
         setLoading(true)
 
-        axios.get('http://api.textilediwanji.com/getemployee', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/getemployee', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data)
                 setEmployeedetails(res.data);

@@ -23,7 +23,7 @@ const Donutchart = () => {
 
     setLoading(true);
 
-    axios.get('http://api.textilediwanji.com/beaminward', { withCredentials: true })
+    axios.get('http://api.textilediwanji.com:5000/beaminward', { withCredentials: true })
       .then(res => {
         const data = res.data;
         const countOnLoom = data.filter(item => item.beamstatus === "Ready to dispatch").length;

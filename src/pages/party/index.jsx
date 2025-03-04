@@ -44,7 +44,7 @@ const Party = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const handlesubmit = (e) => {
         e.preventDefault();
-        axios.post('http://api.textilediwanji.com/party', values, { withCredentials: true })
+        axios.post('http://api.textilediwanji.com:5000/party', values, { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 if (res.data.message === "Data inserted") {
@@ -65,7 +65,7 @@ const Party = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = () => {
         setLoading(true)
-        axios.get('http://api.textilediwanji.com/party', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/party', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 setCompany(res.data);
@@ -77,7 +77,7 @@ const Party = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     const handledelete = (id) => {
-        axios.delete(`http://api.textilediwanji.com/partydelete/${id}`, { withCredentials: true })
+        axios.delete(`http://api.textilediwanji.com:5000/partydelete/${id}`, { withCredentials: true })
             .then(res => {
                 fetchdata();
             })

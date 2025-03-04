@@ -68,7 +68,7 @@ const Drawprint = () => {
 
         setLoading(true)
 
-        axios.get(`http://api.textilediwanji.com/getdrawindata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/getdrawindata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 // //console.log(res.data)
                 setDrawindata(res.data);

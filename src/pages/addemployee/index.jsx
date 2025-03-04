@@ -44,7 +44,7 @@ const AddEmployee = ({ isLoggedIn, setIsLoggedIn }) => {
     const fechemployee = () => {
         setLoading(true)
 
-        axios.get('http://api.textilediwanji.com/getemployee', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/getemployee', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data)
                 setEmployeedetails(res.data);
@@ -79,7 +79,7 @@ const AddEmployee = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
 
-        axios.post('http://api.textilediwanji.com/employee', values, { withCredentials: true })
+        axios.post('http://api.textilediwanji.com:5000/employee', values, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "employee added") {
@@ -107,7 +107,7 @@ const AddEmployee = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handledelete = (id) => {
-        axios.delete(`http://api.textilediwanji.com/employeedelete/${id}`, { withCredentials: true })
+        axios.delete(`http://api.textilediwanji.com:5000/employeedelete/${id}`, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "employee deleted") {
                     toast.success("Employee deleted", { position: "top-center", autoClose: 2000, closeOnClick: true });

@@ -62,7 +62,7 @@ const MonthlyProduction = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
         setLoading(true)
-        const fetchproductiondata = `http://api.textilediwanji.com/productionmonthly/reports?startdate=${startdate}&enddate=${enddate}`;
+        const fetchproductiondata = `http://api.textilediwanji.com:5000/productionmonthly/reports?startdate=${startdate}&enddate=${enddate}`;
         axios.get(fetchproductiondata, { withCredentials: true })
             .then(res => {
 

@@ -44,7 +44,7 @@ const Daterangeyarninwardreport = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = () => {
         setLoading(true)
-        axios.get(`http://api.textilediwanji.com/daterangeyarnreport/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/daterangeyarnreport/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 // setFetchdata(res.data);
@@ -57,7 +57,7 @@ const Daterangeyarninwardreport = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     const handledelete = (sryarn) => {
-        axios.delete(`http://api.textilediwanji.com/yarninwarddelete/${sryarn}`, { withCredentials: true })
+        axios.delete(`http://api.textilediwanji.com:5000/yarninwarddelete/${sryarn}`, { withCredentials: true })
             .then((res) => {
                 fetchdata();
                 setModalId(null);

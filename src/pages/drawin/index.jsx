@@ -63,7 +63,7 @@ const DrawIn = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
         else {
-            axios.get(`http://api.textilediwanji.com/getdesignnumber2/data?dn=${setno}`, { withCredentials: true })
+            axios.get(`http://api.textilediwanji.com:5000/getdesignnumber2/data?dn=${setno}`, { withCredentials: true })
                 .then(res => {
                     //console.log(res.data);
 
@@ -109,7 +109,7 @@ const DrawIn = ({ isLoggedIn, setIsLoggedIn }) => {
 
         setLoading(true)
 
-        axios.get(`http://api.textilediwanji.com/getdrawindata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/getdrawindata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 // //console.log(res.data)
                 setDrawindata(res.data);
@@ -151,7 +151,7 @@ const DrawIn = ({ isLoggedIn, setIsLoggedIn }) => {
 
             setNotpresent("Design number is not present");
 
-            axios.get(`http://api.textilediwanji.com/getbeaminwarddatafordrawin?setnumber=${setno}&designnumber=${designno}`, { withCredentials: true })
+            axios.get(`http://api.textilediwanji.com:5000/getbeaminwarddatafordrawin?setnumber=${setno}&designnumber=${designno}`, { withCredentials: true })
                 .then(res => {
                     const data = res.data[0].srno
                     //console.log(data)
@@ -222,7 +222,7 @@ const DrawIn = ({ isLoggedIn, setIsLoggedIn }) => {
             erroralert("set number not exist");
         }
         else {
-            axios.post(`http://api.textilediwanji.com/drawinpost`, values, { withCredentials: true })
+            axios.post(`http://api.textilediwanji.com:5000/drawinpost`, values, { withCredentials: true })
                 .then(res => {
 
                     if (res.data.message === "drawin added successfully") {

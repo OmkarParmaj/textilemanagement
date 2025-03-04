@@ -86,7 +86,7 @@ const BeamInwardEdit = ({ isLoggedIn, setIsLoggedIn }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://api.textilediwanji.com/beaminwardeditchange/${srno}`, { withCredentials: true });
+                const response = await axios.get(`http://api.textilediwanji.com:5000/beaminwardeditchange/${srno}`, { withCredentials: true });
                 const data = response.data;
 
                 const omkar = inputdateformat(response.data[0].Date);
@@ -175,7 +175,7 @@ const BeamInwardEdit = ({ isLoggedIn, setIsLoggedIn }) => {
         }
 
         try {
-            const response = await axios.put(`http://api.textilediwanji.com/beaminwardedit/${id}`, formData, {
+            const response = await axios.put(`http://api.textilediwanji.com:5000/beaminwardedit/${id}`, formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'  // Make sure to set this header

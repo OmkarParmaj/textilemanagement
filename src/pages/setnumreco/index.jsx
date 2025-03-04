@@ -68,7 +68,7 @@ const Setnumreco = () => {
     useEffect(() => {
 
 
-        axios.get(`http://api2.textilediwanji.com/setnumberwisereco/data?setnumber=${setno}&recoemail=${recoemail}`, { withCredentials: true })
+        axios.get(`http://api2.textilediwanji.com:4000/setnumberwisereco/data?setnumber=${setno}&recoemail=${recoemail}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data)
                 setRecosetnumber(res.data);
@@ -95,7 +95,7 @@ const Setnumreco = () => {
 
 
     useEffect(() => {
-        axios.get(`http://api2.textilediwanji.com/reconsilecompany?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true })
+        axios.get(`http://api2.textilediwanji.com:4000/reconsilecompany?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true })
             .then(res => {
                 // console.log(res.data);
                 setCompany(res.data[0]);
@@ -112,7 +112,7 @@ const Setnumreco = () => {
 
     useEffect(() => {
 
-        axios.post(`http://api2.textilediwanji.com/packinginfo`, { mailid }, { withCredentials: true })
+        axios.post(`http://api2.textilediwanji.com:4000/packinginfo`, { mailid }, { withCredentials: true })
             .then(res => {
                 const yesgot = res.data[0].companyna;
                 setMaaaid(yesgot);
@@ -129,11 +129,11 @@ const Setnumreco = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`http://api2.textilediwanji.com/reconsile?setno=${setno}&recoemail=${recoemail}`, {withCredentials:true})
-                const response1 = await axios.get(`http://api2.textilediwanji.com/reconsilation?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
-                const response2 = await axios.get(`http://api2.textilediwanji.com/packslipreco?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
-                const response3 = await axios.get(`http://api2.textilediwanji.com/yarninward?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
-                const response4 = await axios.get(`http://api2.textilediwanji.com/billingreport?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
+                const res = await axios.get(`http://api2.textilediwanji.com:4000/reconsile?setno=${setno}&recoemail=${recoemail}`, {withCredentials:true})
+                const response1 = await axios.get(`http://api2.textilediwanji.com:4000/reconsilation?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
+                const response2 = await axios.get(`http://api2.textilediwanji.com:4000/packslipreco?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
+                const response3 = await axios.get(`http://api2.textilediwanji.com:4000/yarninward?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
+                const response4 = await axios.get(`http://api2.textilediwanji.com:4000/billingreport?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true });
                 // console.log(response1.data);
                 setReconsile(response1.data);
                 setPack(response2.data);
@@ -192,7 +192,7 @@ const Setnumreco = () => {
 
 
     useEffect(() => {
-        axios.get(`http://api2.textilediwanji.com/reconsilation?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true })
+        axios.get(`http://api2.textilediwanji.com:4000/reconsilation?setno=${setno}&designno=${designno}&recoemail=${recoemail}`, { withCredentials: true })
             .then(res => {
 
                 // console.log(res.data);
@@ -335,7 +335,7 @@ const Setnumreco = () => {
 
                         <div className="row">
                             <div className="col-4 col-md-2  border-bottom d-flex justify-content-center align-items-center ">
-                                <img src={`http://api2.textilediwanji.com/omkarparmaj/${maaaid}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${maaaid}`} />
+                                <img src={`http://api2.textilediwanji.com:4000/omkarparmaj/${maaaid}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${maaaid}`} />
                             </div>
                             <div className="col-8 col-md-10 border-start border-bottom">
                                 {company && <h3 className="m-0 companyname">{company.companyname}</h3>}

@@ -35,7 +35,7 @@ const ShiftSetting = ({ isLoggedIn, setIsLoggedIn }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://api.textilediwanji.com/addshift', { shiftname }, { withCredentials: true })
+        axios.post('http://api.textilediwanji.com:5000/addshift', { shiftname }, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "shift added") {
                     // toast.success("Shift added", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -51,7 +51,7 @@ const ShiftSetting = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchShiftData = () => {
         setLoading(true)
-        axios.get('http://api.textilediwanji.com/getshiftdata', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/getshiftdata', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 setShiftdata(res.data);
@@ -68,7 +68,7 @@ const ShiftSetting = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handleDelete = (srno) => {
-        axios.delete('http://api.textilediwanji.com/shiftdelete', { data: { srno }, withCredentials: true })
+        axios.delete('http://api.textilediwanji.com:5000/shiftdelete', { data: { srno }, withCredentials: true })
             .then(res => {
                 if (res.data.message === "shift deleted") {
                     // toast.success("Shift deleted", { position: "top-center", autoClose: 2000, closeOnClick: true });

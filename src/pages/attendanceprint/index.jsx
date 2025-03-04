@@ -40,7 +40,7 @@ const Attendanceprint = () => {
 
     const fetchdata = () => {
         setLoading(true)
-        axios.get(`http://api.textilediwanji.com/attendancedata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/attendancedata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 setAttendancedata(res.data);
                 //console.log(res.data)
@@ -55,7 +55,7 @@ const Attendanceprint = () => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com/getemployee', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/getemployee', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data)
                 setEmployeedetails(res.data);

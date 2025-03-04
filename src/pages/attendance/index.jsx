@@ -51,7 +51,7 @@ const Attendance = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handleupdate = (srno) => {
-        axios.get(`http://api.textilediwanji.com/fetchattendancedataforedit/${srno}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/fetchattendancedataforedit/${srno}`, { withCredentials: true })
             .then(res => {
 
                 setEdate(res.data[0].date);
@@ -80,7 +80,7 @@ const Attendance = ({ isLoggedIn, setIsLoggedIn }) => {
             absentdays: eabsentdays,
             halfdays: ehalfdays
         }
-        axios.put(`http://api.textilediwanji.com/employeeattendanceedit/${srno}`, values, { withCredentials: true })
+        axios.put(`http://api.textilediwanji.com:5000/employeeattendanceedit/${srno}`, values, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "employee attendance updated") {
                     toast.success(`Attendance updated`, { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -111,7 +111,7 @@ const Attendance = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = () => {
         setLoading(true)
-        axios.get(`http://api.textilediwanji.com/attendancedata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`http://api.textilediwanji.com:5000/attendancedata/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 setAttendancedata(res.data);
                 //console.log(res.data)
@@ -133,7 +133,7 @@ const Attendance = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com/getemployee', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/getemployee', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data)
                 setEmployeedetails(res.data);
@@ -162,7 +162,7 @@ const Attendance = ({ isLoggedIn, setIsLoggedIn }) => {
             half: halfdays
         }
 
-        axios.post('http://api.textilediwanji.com/addattendance', values, { withCredentials: true })
+        axios.post('http://api.textilediwanji.com:5000/addattendance', values, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "attendance added") {

@@ -92,7 +92,7 @@ const BeamInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
             status: sta
         }
 
-        axios.put(`http://api.textilediwanji.com/updatestatus?srnumber=${srno}`, value, { withCredentials: true })
+        axios.put(`http://api.textilediwanji.com:5000/updatestatus?srnumber=${srno}`, value, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "updated status") {
@@ -138,7 +138,7 @@ const BeamInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = () => {
         setLoading2(true)
-        axios.get('http://api.textilediwanji.com/beaminwardreport', {
+        axios.get('http://api.textilediwanji.com:5000/beaminwardreport', {
             withCredentials: true
         })
             .then((res) => {
@@ -177,7 +177,7 @@ const BeamInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
     }
 
     const handledelete = (DesignNo) => {
-        axios.delete(`http://api.textilediwanji.com/delete/${DesignNo}`, { withCredentials: true })
+        axios.delete(`http://api.textilediwanji.com:5000/delete/${DesignNo}`, { withCredentials: true })
             .then((res) => {
                 fetchdata();
                 setModalId(null); // Reset modal ID after deletion
@@ -210,7 +210,7 @@ const BeamInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
         const sendmail = sendemail
         const heyurl = `http://www.textilediwanji.com/reco?setno=${encryptelement(setno)}&designno=${encryptelement(Designno)}&recoemail=${encryptelement(remail)}`;
 
-        axios.post("http://api.textilediwanji.com/mailreconsile", { heyurl, sendmail }, { withCredentials: true })
+        axios.post("http://api.textilediwanji.com:5000/mailreconsile", { heyurl, sendmail }, { withCredentials: true })
             .then(() => {
 
                 // toast.success("Reconsilation slip sent", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -231,7 +231,7 @@ const BeamInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
         const sendmail = sendemail
         const heyurl = `http://www.textilediwanji.com/setnumreco?setno=${encryptelement(setno)}&designno=${encryptelement(Designno)}&recoemail=${encryptelement(remail)}`;
 
-        axios.post("http://api.textilediwanji.com/mailreconsile", { heyurl, sendmail }, { withCredentials: true })
+        axios.post("http://api.textilediwanji.com:5000/mailreconsile", { heyurl, sendmail }, { withCredentials: true })
             .then(() => {
 
                 // toast.success("Reconsilation slip sent", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -831,7 +831,7 @@ const BeamInwardReport = ({ isLoggedIn, setIsLoggedIn }) => {
                                                                 <td style={{fontSize: "13px"}}>{report.designfile ? <Link target='_blank' href={`http://www.textilediwanji.com/designpaperprint?designpaper=${report.designfile}`}><IoIosPaper className="printone" /></Link> : <span className="badge rounded-pill text-bg-secondary">NO FILE</span>}</td>
                                                                 <td style={{fontSize: "13px"}}>
                                                                     {report.jacquardfile ? (
-                                                                        <a href={`http://api.textilediwanji.com/jacquardfiles/${removeprefix(report.jacquardfile)}`} download>
+                                                                        <a href={`http://api.textilediwanji.com:5000/jacquardfiles/${removeprefix(report.jacquardfile)}`} download>
                                                                             <FaDownload className="printone" />
                                                                         </a>
                                                                     ) : (

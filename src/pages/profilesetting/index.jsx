@@ -38,7 +38,7 @@ const ProfileSetting = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const getdata = () => {
 
-        axios.get('http://api.textilediwanji.com/profilesetting', { withCredentials: true })
+        axios.get('http://api.textilediwanji.com:5000/profilesetting', { withCredentials: true })
             .then(res => {
                 // console.log(res.data)
                 setName(res.data[0].Name);
@@ -65,7 +65,7 @@ const ProfileSetting = ({ isLoggedIn, setIsLoggedIn }) => {
             PhoneNo: phoneno
         }
 
-        axios.put(`http://api.textilediwanji.com/profileedit`, values, { withCredentials: true })
+        axios.put(`http://api.textilediwanji.com:5000/profileedit`, values, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "profile updated") {
