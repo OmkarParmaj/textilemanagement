@@ -1,0 +1,9 @@
+@media print {
+    .dontdrawinprint * {
+        display: none;
+    }
+
+    .printdrawinprint {
+        visibility: visible;
+    }
+}

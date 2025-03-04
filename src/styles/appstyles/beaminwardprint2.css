@@ -1,0 +1,9 @@
+@media print {
+    .dontbeaminwardprint2button * {
+        display: none;
+    }
+
+    .printbeaminwardreport2 * {
+        visibility: visible;
+    }
+}

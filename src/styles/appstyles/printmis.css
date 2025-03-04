@@ -1,0 +1,9 @@
+@media print {
+    .dontprintmis *{
+        display: none;
+    }
+
+    .printmis *{
+        visibility: visible;
+    }
+}

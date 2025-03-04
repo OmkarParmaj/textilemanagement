@@ -1,0 +1,72 @@
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    .dontshow {
+        visibility: hidden;
+        display: none;
+    }
+    .divToPrint,
+    .divToPrint
+     * {
+        visibility: visible;
+        /* display: flex; */
+    }
+   
+    .printshow * {
+        visibility: visible;
+    
+    }
+
+    .divToPrint,
+    .printshow {
+        /* position: absolute; */
+        left: 0;
+        top: 0;
+
+    }
+
+    .omkar1,
+    .omkar2,
+    .omkar3,
+    .omkar4,
+    .omkar5,
+    .omkar6 {
+        display: none;
+    }
+
+    .rightone {
+        background: none;
+        margin-left: 0px;
+        height: 100% !important;
+        width: 100%;
+
+
+    }
+
+    .updateone,
+    .updatetwo
+    {
+        display: none !important;
+    }
+
+    .companyname {
+        display: flex !important;
+    }
+   
+
+    .printbutton {
+        display: none;
+    }
+
+    .loomstatusmain {
+        background: none;
+        margin-left: 0px;
+
+    }
+
+   
+
+}

@@ -1,0 +1,9 @@
+@media print {
+    .dontreconsilationprint * {
+        display: none;
+    }
+
+    .reconsilationprint * {
+        visibility: visible;
+    }
+}
