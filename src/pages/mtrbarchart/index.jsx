@@ -34,7 +34,7 @@ const Mtrbarchart = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('http://api.textilediwanji.com:5000/productiondashboard', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/productiondashboard', { withCredentials: true })
             .then(res => {
                 setLoading(false);
                 const mydata = res.data;

@@ -34,7 +34,7 @@ const Misprint = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://api.textilediwanji.com:5000/readytodispatchmis', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/readytodispatchmis', { withCredentials: true })
             .then(res => {
                 setDispatch(res.data);
                 setLoading(false)
@@ -47,7 +47,7 @@ const Misprint = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get("http://api.textilediwanji.com:5000/beamstatusreportmis", { withCredentials: true })
+        axios.get("https://apitextilediwanji.work.gd:5000/beamstatusreportmis", { withCredentials: true })
             .then(res => {
 
                 setRecords(res.data);
@@ -63,7 +63,7 @@ const Misprint = () => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/production', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/production', { withCredentials: true })
             .then(res => {
                 // Assuming res.data is an array and contains the production data
                 const productionData = res.data;
@@ -101,7 +101,7 @@ const Misprint = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://api.textilediwanji.com:5000/loomstatusdata', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/loomstatusdata', { withCredentials: true })
             .then(res => {
                 const ldata = res.data;
                 const sortedloomdata = [...ldata].sort((a, b) => a.loomno - b.loomno);

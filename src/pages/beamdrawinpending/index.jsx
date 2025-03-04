@@ -29,7 +29,7 @@ const Beamdrawinpending = ({ isLoggedIn, setIsLoggedIn }) => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get("http://api.textilediwanji.com:5000/beamdrawinpending", { withCredentials: true })
+        axios.get("https://apitextilediwanji.work.gd:5000/beamdrawinpending", { withCredentials: true })
             .then(res => {
 
                 setRecords(res.data);

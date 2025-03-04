@@ -38,7 +38,7 @@ const YarnInwardEdit = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = async () => {
         try {
-            const res = await axios.get(`http://api.textilediwanji.com:5000/yarninwardedit/${srnoyarn}`, { withCredentials: true });
+            const res = await axios.get(`https://apitextilediwanji.work.gd:5000/yarninwardedit/${srnoyarn}`, { withCredentials: true });
             const predate = new Date(res.data[0].date).toISOString().split('T')[0];
             setDate(predate);
             setInitialdate(predate);
@@ -79,7 +79,7 @@ const YarnInwardEdit = ({ isLoggedIn, setIsLoggedIn }) => {
             formData.append('file', fileomkar);
         }
 
-        axios.put(`http://api.textilediwanji.com:5000/yarninwardedit/${srnoyarn}`, formData, { withCredentials: true })
+        axios.put(`https://apitextilediwanji.work.gd:5000/yarninwardedit/${srnoyarn}`, formData, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "Updated") {
                     // toast.success("Updated Yarn data!", { position: "top-center", autoClose: 2000, closeOnClick: true });

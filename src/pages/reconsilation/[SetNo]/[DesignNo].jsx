@@ -55,7 +55,7 @@ const Reconsilation = () => {
 
 
     useEffect(() => {
-        axios.get(`http://api.textilediwanji.com:5000/reconsilecompany/${SetNo}`, {
+        axios.get(`https://apitextilediwanji.work.gd:5000/reconsilecompany/${SetNo}`, {
             withCredentials: true
         })
             .then(res => {
@@ -70,10 +70,10 @@ const Reconsilation = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response1 = await axios.get(`http://api.textilediwanji.com:5000/reconsilation/${SetNo}`, { withCredentials: true });
-                const response2 = await axios.get(`http://api.textilediwanji.com:5000/packslip/${SetNo}/${DesignNo}`, { withCredentials: true });
-                const response3 = await axios.get(`http://api.textilediwanji.com:5000/yarninward/${SetNo}`, { withCredentials: true });
-                const response4 = await axios.get(`http://api.textilediwanji.com:5000/billingreport/${SetNo}/${DesignNo}`, { withCredentials: true });
+                const response1 = await axios.get(`https://apitextilediwanji.work.gd:5000/reconsilation/${SetNo}`, { withCredentials: true });
+                const response2 = await axios.get(`https://apitextilediwanji.work.gd:5000/packslip/${SetNo}/${DesignNo}`, { withCredentials: true });
+                const response3 = await axios.get(`https://apitextilediwanji.work.gd:5000/yarninward/${SetNo}`, { withCredentials: true });
+                const response4 = await axios.get(`https://apitextilediwanji.work.gd:5000/billingreport/${SetNo}/${DesignNo}`, { withCredentials: true });
                 setReconsile(response1.data);
                 setPack(response2.data);
                 const packslipdata = response2.data;
@@ -162,7 +162,7 @@ const Reconsilation = () => {
 
 
     useEffect(() => {
-        axios.get(`http://api.textilediwanji.com:5000/reconsilationbeaminward/${SetNo}/${DesignNo}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/reconsilationbeaminward/${SetNo}/${DesignNo}`, { withCredentials: true })
             .then(res => {
 
                 console.log(res.data);
@@ -376,7 +376,7 @@ const Reconsilation = () => {
 
                                                 <div className="row">
                                                     <div className="col-4 col-md-2  border-bottom d-flex justify-content-center align-items-center ">
-                                                        <img src={`http://api.textilediwanji.com:5000/companyimage/${company.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${company.filenameas}`} />
+                                                        <img src={`https://apitextilediwanji.work.gd:5000/companyimage/${company.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${company.filenameas}`} />
                                                     </div>
                                                     <div className="col-8 col-md-10 border-start border-bottom">
                                                         {company && <h3 className="m-0 companyname">{company.companyname}</h3>}

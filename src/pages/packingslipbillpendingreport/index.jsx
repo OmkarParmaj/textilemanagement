@@ -84,7 +84,7 @@ const Packingslipbillpendingreport = ({ isLoggedIn, setIsLoggedIn }) => {
     const handlefetch = async () => {
         try {
             setLoading2(true)
-            const response = await axios.get('http://api.textilediwanji.com:5000/packingslipreport', { withCredentials: true });
+            const response = await axios.get('https://apitextilediwanji.work.gd:5000/packingslipreport', { withCredentials: true });
             // //console.log(response);
             setPacking(response.data);
             // setRecords(response.data)
@@ -124,7 +124,7 @@ const Packingslipbillpendingreport = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handledelete = (id) => {
-        axios.delete(`http://api.textilediwanji.com:5000/packingdelete/${id}`, { withCredentials: true })
+        axios.delete(`https://apitextilediwanji.work.gd:5000/packingdelete/${id}`, { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 if (res.data.message === "deleted") {
@@ -156,7 +156,7 @@ const Packingslipbillpendingreport = ({ isLoggedIn, setIsLoggedIn }) => {
         const maid = sendemail;
         const yesurl = `https://www.textilediwanji.com/packingdata?packingslipno=${packing}&uidno=${ui}&serialno=${ser}&emailid=${mai}`;
 
-        axios.post("http://api.textilediwanji.com:5000/mailpackslip", { yesurl, maid }, { withCredentials: true })
+        axios.post("https://apitextilediwanji.work.gd:5000/mailpackslip", { yesurl, maid }, { withCredentials: true })
             .then(() => {
 
                 // toast.success("Packing slip sent", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -174,7 +174,7 @@ const Packingslipbillpendingreport = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handlebillnumber = (srno, billnumber) => {
-        axios.put(`http://api.textilediwanji.com:5000/putbillnumberinpackingslip`, { srno, billnumber }, { withCredentials: true })
+        axios.put(`https://apitextilediwanji.work.gd:5000/putbillnumberinpackingslip`, { srno, billnumber }, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "bill status updated") {
                     successalert("bill status updated");

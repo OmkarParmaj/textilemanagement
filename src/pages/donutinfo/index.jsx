@@ -17,7 +17,7 @@ const Donutinfo = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://api.textilediwanji.com:5000/beaminward', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/beaminward', { withCredentials: true })
             .then(res => {
                 //console.log(res.data)
 

@@ -77,7 +77,7 @@ const PackingSlipEdit = ({ isLoggedIn, setIsLoggedIn }) => {
         try {
 
             setLoading(true)
-            const response = await axios.get(`http://api.textilediwanji.com:5000/packingslipedit/${Packingslipno}`, { withCredentials: true });
+            const response = await axios.get(`https://apitextilediwanji.work.gd:5000/packingslipedit/${Packingslipno}`, { withCredentials: true });
 
             // //console.log(response.data);
             setPackdata(response.data[0]);
@@ -196,14 +196,14 @@ const PackingSlipEdit = ({ isLoggedIn, setIsLoggedIn }) => {
 
         try {
             if (Packingslipno) {
-                const res = await axios.put(`http://api.textilediwanji.com:5000/packingslipedit/${Packingslipno}`, payload, { withCredentials: true });
+                const res = await axios.put(`https://apitextilediwanji.work.gd:5000/packingslipedit/${Packingslipno}`, payload, { withCredentials: true });
                 // //console.log(res.data);
                 if (res.data.message === "data updated") {
                     // toast.success("Data has been Updated!", { position: "top-center", autoClose: 2000, closeOnClick: true });
                     successalert("Data has been updated")
                 }
             } else {
-                const res = await axios.post("http://api.textilediwanji.com:5000/packslip", payload, { withCredentials: true });
+                const res = await axios.post("https://apitextilediwanji.work.gd:5000/packslip", payload, { withCredentials: true });
                 // //console.log(res.data);
                 // toast.success("Data submitted successfully!", { position: "top-center", autoClose: 2000, closeOnClick: true });
                 successalert("Data submitted successfully!")

@@ -59,7 +59,7 @@ const EmployeeAdvance = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get(`http://api.textilediwanji.com:5000/totaladvancetaken/${srno}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/totaladvancetaken/${srno}`, { withCredentials: true })
             .then(res => {
                 setTotaladvancetaken(res.data[0].totaladvance)
                 setTotaladvancereceived(res.data[0].receivedadvance);
@@ -71,7 +71,7 @@ const EmployeeAdvance = ({ isLoggedIn, setIsLoggedIn }) => {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://api.textilediwanji.com:5000/getemployeedetails/${srno}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/getemployeedetails/${srno}`, { withCredentials: true })
             .then(res => {
                 //console.log(res.data);
                 setEmployeedetails(res.data[0])
@@ -87,7 +87,7 @@ const EmployeeAdvance = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const fetchdata = () => {
         setLoading(true)
-        axios.get(`http://api.textilediwanji.com:5000/advancereport/data?srno=${srno}&startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/advancereport/data?srno=${srno}&startdate=${startdate}&enddate=${enddate}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 setAdvancedetails(res.data);
@@ -114,7 +114,7 @@ const EmployeeAdvance = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
 
-        axios.post('http://api.textilediwanji.com:5000/giveadvance', values, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd:5000/giveadvance', values, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "advance given") {
@@ -139,7 +139,7 @@ const EmployeeAdvance = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
 
-        axios.post('http://api.textilediwanji.com:5000/receivedamount', values, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd:5000/receivedamount', values, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "amount received") {
@@ -157,7 +157,7 @@ const EmployeeAdvance = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handledelete = (id) => {
-        axios.delete(`http://api.textilediwanji.com:5000/employeeadvancedelete/${id}`, { withCredentials: true })
+        axios.delete(`https://apitextilediwanji.work.gd:5000/employeeadvancedelete/${id}`, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "deleted") {

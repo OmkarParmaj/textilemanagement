@@ -56,7 +56,7 @@ const YarnInward = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
         else {
-            axios.get(`http://api.textilediwanji.com:5000/getdesignnumber/data?dn=${rowData.Designno}`, { withCredentials: true })
+            axios.get(`https://apitextilediwanji.work.gd:5000/getdesignnumber/data?dn=${rowData.Designno}`, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
 
@@ -90,7 +90,7 @@ const YarnInward = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
         else {
-            axios.get(`http://api.textilediwanji.com:5000/getdesignnumber2/data?dn=${rowData.setNo}`, { withCredentials: true })
+            axios.get(`https://apitextilediwanji.work.gd:5000/getdesignnumber2/data?dn=${rowData.setNo}`, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
 
@@ -168,7 +168,7 @@ const YarnInward = ({ isLoggedIn, setIsLoggedIn }) => {
         }
 
         else {
-            axios.post('http://api.textilediwanji.com:5000/yarninward', formData, { withCredentials: true })
+            axios.post('https://apitextilediwanji.work.gd:5000/yarninward', formData, { withCredentials: true })
                 .then(res => {
                     setLoading(false);
                     // console.log("Data inserted successfully");

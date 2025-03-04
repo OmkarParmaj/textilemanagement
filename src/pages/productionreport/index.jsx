@@ -75,7 +75,7 @@ const ProductionReport = ({ isLoggedIn, setIsLoggedIn }) => {
             return;
         }
 
-        const url = `http://api.textilediwanji.com:5000/api/production/reports?date=${date}`;
+        const url = `https://apitextilediwanji.work.gd:5000/api/production/reports?date=${date}`;
         axios.get(url, { withCredentials: true })
             .then(res => {
                 if (res.data.length === 0) {

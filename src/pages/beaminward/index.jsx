@@ -97,7 +97,7 @@ const Beaminward = ({ isLoggedIn, setIsLoggedIn }) => {
 
     useEffect(() => {
 
-        axios.get(`http://api.textilediwanji.com:5000/getdesignnumber/data?dn=${values.DesignNo}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/getdesignnumber/data?dn=${values.DesignNo}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
 
@@ -154,7 +154,7 @@ const Beaminward = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/beaminwarduniqueidno', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/beaminwarduniqueidno', { withCredentials: true })
             .then(res => {
 
                 const data = res.data;
@@ -174,7 +174,7 @@ const Beaminward = ({ isLoggedIn, setIsLoggedIn }) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`http://api.textilediwanji.com:5000/company`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/company`, { withCredentials: true })
             .then(res => {
                 setCompany(res.data);
             })
@@ -184,7 +184,7 @@ const Beaminward = ({ isLoggedIn, setIsLoggedIn }) => {
     }, []);
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/partyname', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/partyname', { withCredentials: true })
             .then(res => {
                 setParty(res.data);
             })
@@ -246,7 +246,7 @@ const Beaminward = ({ isLoggedIn, setIsLoggedIn }) => {
         }
         else {
 
-            axios.post('http://api.textilediwanji.com:5000/beaminward', formData, {
+            axios.post('https://apitextilediwanji.work.gd:5000/beaminward', formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'  // Make sure to set this header

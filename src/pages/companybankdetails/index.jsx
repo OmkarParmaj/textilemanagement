@@ -45,7 +45,7 @@ const CompanyBankDetails = ({ isLoggedIn, setIsLoggedIn }) => {
 
         try {
             setLoading(true)
-            const res = await axios.get('http://api.textilediwanji.com:5000/companybankdetails', { withCredentials: true })
+            const res = await axios.get('https://apitextilediwanji.work.gd:5000/companybankdetails', { withCredentials: true })
             // console.log(res.data);
             setBankdetails(res.data);
             setLoading(false)
@@ -69,7 +69,7 @@ const CompanyBankDetails = ({ isLoggedIn, setIsLoggedIn }) => {
             bankaddress
         }
 
-        axios.post('http://api.textilediwanji.com:5000/companybankdetails', payload, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd:5000/companybankdetails', payload, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "data submmited") {
                     // toast.success("Bank details are submmited", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -85,7 +85,7 @@ const CompanyBankDetails = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handleDelete = (id) => {
-        axios.delete(`http://api.textilediwanji.com:5000/bankdetaildelete/${id}`, { withCredentials: true })
+        axios.delete(`https://apitextilediwanji.work.gd:5000/bankdetaildelete/${id}`, { withCredentials: true })
             .then(res => {
 
                 if (res.data.message === "bank details deleted") {

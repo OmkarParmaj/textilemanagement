@@ -48,7 +48,7 @@ const Login = ({ setIsLoggedIn }) => {
             const uid = data.user.uid;
             const phonenumber = data.user.phoneNumber
 
-            axios.post('http://api.textilediwanji.com:5000/googleauth', { email, name, uid, phonenumber }, { withCredentials: true })
+            axios.post('https://apitextilediwanji.work.gd:5000/googleauth', { email, name, uid, phonenumber }, { withCredentials: true })
                 .then(res => {
                     console.log(res.data)
                     if (res.data.message === "done") {
@@ -88,7 +88,7 @@ const Login = ({ setIsLoggedIn }) => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         setLoading(true)
-        axios.post('http://api.textilediwanji.com:5000/login', values, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd:5000/login', values, { withCredentials: true })
             .then(res => {
              
                 // console.log(res.data.message);

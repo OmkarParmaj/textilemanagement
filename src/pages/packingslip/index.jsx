@@ -62,7 +62,7 @@ const PackingSlip = ({ isLoggedIn, setIsLoggedIn }) => {
 
     const handlestatus = (e) => {
         const status = "Ready to dispatch"
-        axios.put(`http://api.textilediwanji.com:5000/packslipstatus?setnumber=${setno}&designnumber=${designno}`, { status }, { withCredentials: true })
+        axios.put(`https://apitextilediwanji.work.gd:5000/packslipstatus?setnumber=${setno}&designnumber=${designno}`, { status }, { withCredentials: true })
             .then(res => {
 
             })
@@ -80,7 +80,7 @@ const PackingSlip = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/packslipnofetch', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/packslipnofetch', { withCredentials: true })
             .then(res => {
                 const data = res.data;
                 if (data.length > 0) {
@@ -104,7 +104,7 @@ const PackingSlip = ({ isLoggedIn, setIsLoggedIn }) => {
         }
 
         else {
-            axios.post('http://api.textilediwanji.com:5000/packislipbeam', { designno }, { withCredentials: true })
+            axios.post('https://apitextilediwanji.work.gd:5000/packislipbeam', { designno }, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
                     if (res.data[0].yes === 0) {
@@ -137,7 +137,7 @@ const PackingSlip = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
         else {
-            axios.get(`http://api.textilediwanji.com:5000/getdesignnumber2/data?dn=${setno}`, { withCredentials: true })
+            axios.get(`https://apitextilediwanji.work.gd:5000/getdesignnumber2/data?dn=${setno}`, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
 
@@ -207,7 +207,7 @@ const PackingSlip = ({ isLoggedIn, setIsLoggedIn }) => {
 
     // const handleSubmit = async () => {
     //   try {
-    //     await axios.post("http://api.textilediwanji.com:5000/packslip", rows);
+    //     await axios.post("https://apitextilediwanji.work.gd:5000/packslip", rows);
     //     alert("Data submitted successfully!");
     //   } catch (error) {
     //     console.error("Error submitting data:", error);
@@ -239,7 +239,7 @@ const PackingSlip = ({ isLoggedIn, setIsLoggedIn }) => {
         }
 
         else if (dno) {
-            axios.post('http://api.textilediwanji.com:5000/packslip', payload, { withCredentials: true })
+            axios.post('https://apitextilediwanji.work.gd:5000/packslip', payload, { withCredentials: true })
                 .then(res => {
                     //  alert("Data has submitted");
                     // console.log("data has submiited");

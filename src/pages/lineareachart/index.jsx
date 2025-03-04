@@ -11,7 +11,7 @@ const Lineareachart = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('http://api.textilediwanji.com:5000/productiondashboard', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/productiondashboard', { withCredentials: true })
             .then(res => {
                 const mydata = res.data;
                 setLoading(false);

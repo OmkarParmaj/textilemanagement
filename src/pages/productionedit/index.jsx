@@ -24,7 +24,7 @@ const ProductionEdit = ({ isLoggedIn, setIsLoggedIn }) => {
         if (date) {
 
             setLoading(true)
-            axios.get(`http://api.textilediwanji.com:5000/get_productiondata_for_edit/data?date=${date}`, { withCredentials: true })
+            axios.get(`https://apitextilediwanji.work.gd:5000/get_productiondata_for_edit/data?date=${date}`, { withCredentials: true })
                 .then(res => {
                     if (res.data) {
                         setData(res.data);

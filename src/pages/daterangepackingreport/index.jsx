@@ -72,7 +72,7 @@ const Daterangepackingreport = ({ isLoggedIn, setIsLoggedIn }) => {
         try {
 
             setLoading2(true)
-            const response = await axios.get(`http://api.textilediwanji.com:5000/datewisepackingreport/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true });
+            const response = await axios.get(`https://apitextilediwanji.work.gd:5000/datewisepackingreport/data?startdate=${startdate}&enddate=${enddate}`, { withCredentials: true });
             // console.log(response);
             setPacking(response.data);
             setRecords(response.data)
@@ -103,7 +103,7 @@ const Daterangepackingreport = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const handledelete = (id) => {
-        axios.delete(`http://api.textilediwanji.com:5000/packingdelete/${id}`, { withCredentials: true })
+        axios.delete(`https://apitextilediwanji.work.gd:5000/packingdelete/${id}`, { withCredentials: true })
             .then(res => {
                 // console.log(res.data);
                 if (res.data.message === "deleted") {
@@ -129,7 +129,7 @@ const Daterangepackingreport = ({ isLoggedIn, setIsLoggedIn }) => {
         setLoading(true);
         const yesurl = `https://www.textilediwanji.com/packingdata?packingslipno=${packing}&uidno=${ui}&serialno=${ser}&emailid=${ema}`;
 
-        axios.post("http://api.textilediwanji.com:5000/mailpackslip", { yesurl }, { withCredentials: true })
+        axios.post("https://apitextilediwanji.work.gd:5000/mailpackslip", { yesurl }, { withCredentials: true })
             .then(() => {
 
                 // toast.success("Packing slip sent", { position: "top-center", autoClose: 2000, closeOnClick: true });

@@ -45,7 +45,7 @@ const Setting = ({ isLoggedIn, setIsLoggedIn }) => {
     const [banks, setBanks] = useState(0);
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/totalparty', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/totalparty', { withCredentials: true })
             .then(res => {
                 setTotalparty(res.data[0].totalparty)
             })
@@ -56,7 +56,7 @@ const Setting = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/totalcompany', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/totalcompany', { withCredentials: true })
             .then(res => {
                 setTotalcompany(res.data[0].totalcompany);
             })
@@ -66,7 +66,7 @@ const Setting = ({ isLoggedIn, setIsLoggedIn }) => {
     }, [])
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/totalbanks', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/totalbanks', { withCredentials: true })
             .then(res => {
 
                 const totalbanks = res.data[0].totalbanks;
@@ -82,7 +82,7 @@ const Setting = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     useEffect(() => {
-        axios.get('http://api.textilediwanji.com:5000/shiftnumber', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/shiftnumber', { withCredentials: true })
             .then(res => {
                 setShiftcount(res.data[0].totalshift)
             })

@@ -18,7 +18,7 @@ const Authentication = () => {
         
         else if (token) {
             axios
-                .get('http://api.textilediwanji.com:5000/authenticatetoken', {
+                .get('https://apitextilediwanji.work.gd:5000/authenticatetoken', {
                     headers: {
                         Authorization: `Bearer ${token}`,
 

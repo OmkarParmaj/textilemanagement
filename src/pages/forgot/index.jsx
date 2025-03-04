@@ -10,7 +10,7 @@ function Forgot() {
 
     const sendEmail = () => {
         setLoading(true);
-        axios.post("http://api.textilediwanji.com:5000/", { email })
+        axios.post("https://apitextilediwanji.work.gd:5000/", { email })
             .then(() => {
                 // toast.success("Password sent to your email address!", { position: "top-center", autoClose: 2000, closeOnClick: true });
                 successalert("Password sent to your email address");

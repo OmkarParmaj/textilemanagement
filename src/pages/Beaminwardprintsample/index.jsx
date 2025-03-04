@@ -21,7 +21,7 @@ const Beaminwardprintsample = () => {
     const fetchdata = async () => {
 
         try {
-            const res = await axios.get(`http://api.textilediwanji.com:5000/beaminwardprintnew/${id1}/${id2}`, {withCredentials: true})
+            const res = await axios.get(`https://apitextilediwanji.work.gd:5000/beaminwardprintnew/${id1}/${id2}`, {withCredentials: true})
             // console.log(res.data)
             setBdata(res.data[0]);
         } catch (err) {
@@ -59,7 +59,7 @@ const Beaminwardprintsample = () => {
                         <div className="row">
                             <div className="col-2 col-md-2 border border-1 d-flex justify-content-center align-items-center ">
 
-                                {bdata && <img src={`http://api.textilediwanji.com:5000/companyimage/${bdata.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${bdata.filenameas}`} ></img>}
+                                {bdata && <img src={`https://apitextilediwanji.work.gd:5000/companyimage/${bdata.filenameas}`} style={{ maxWidth: 250, maxHeight: 90 }} alt={`Image ${bdata.filenameas}`} ></img>}
                             </div>
                             <div className="col-10 col-md-10 border border-1">
                                 <h5 className="m-0 text-center" style={{}}>SOURABH TEXTILE</h5>{bdata && <h3 className="m-0">{bdata.companyname}</h3>}

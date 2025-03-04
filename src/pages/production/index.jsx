@@ -67,7 +67,7 @@ const Production = ({ isLoggedIn, setIsLoggedIn }) => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://api.textilediwanji.com:5000/loomstatusdataforproduction', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/loomstatusdataforproduction', { withCredentials: true })
             .then(res => {
                 const ldata = res.data;
 
@@ -266,7 +266,7 @@ const Production = ({ isLoggedIn, setIsLoggedIn }) => {
             totalprice
         }
 
-        axios.post('http://api.textilediwanji.com:5000/production', payload, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd:5000/production', payload, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "production inserted") {
                     // toast.success("Production is uploaded", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -285,7 +285,7 @@ const Production = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
 
-        axios.post('http://api.textilediwanji.com:5000/production2', payload2, { withCredentials: true })
+        axios.post('https://apitextilediwanji.work.gd:5000/production2', payload2, { withCredentials: true })
             .then(res => {
                 if (res.data.message === "data insrted") {
                     // toast.success("Production is uploaded", { position: "top-center", autoClose: 2000, closeOnClick: true });
@@ -306,7 +306,7 @@ const Production = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
     const fetchShiftData = () => {
-        axios.get('http://api.textilediwanji.com:5000/getshiftdata', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/getshiftdata', { withCredentials: true })
             .then(res => {
                 // //console.log(res.data);
                 setShiftdata(res.data);

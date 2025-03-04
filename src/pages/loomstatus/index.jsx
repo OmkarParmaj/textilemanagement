@@ -57,7 +57,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
             setLnumber("");
 
         }
-        axios.get(`http://api.textilediwanji.com:5000/getloomnumber/data?loomnumber=${loomno}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/getloomnumber/data?loomnumber=${loomno}`, { withCredentials: true })
             .then(res => {
 
 
@@ -86,7 +86,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
 
         }
         else {
-            axios.get(`http://api.textilediwanji.com:5000/getdesignnumber/data?dn=${designno}`, { withCredentials: true })
+            axios.get(`https://apitextilediwanji.work.gd:5000/getdesignnumber/data?dn=${designno}`, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
 
@@ -122,7 +122,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
         }
         else {
 
-            axios.get(`http://api.textilediwanji.com:5000/getdesignnumber/data?dn=${design}`, { withCredentials: true })
+            axios.get(`https://apitextilediwanji.work.gd:5000/getdesignnumber/data?dn=${design}`, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
 
@@ -151,7 +151,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
     useEffect(() => {
 
         setLoading(true);
-        axios.get('http://api.textilediwanji.com:5000/loomstatusdata', { withCredentials: true })
+        axios.get('https://apitextilediwanji.work.gd:5000/loomstatusdata', { withCredentials: true })
             .then(res => {
                 //  console.log(res)
 
@@ -174,7 +174,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
     const handleupdate = (id) => {
 
 
-        axios.get(`http://api.textilediwanji.com:5000/loomstatusget/${id}`, { withCredentials: true })
+        axios.get(`https://apitextilediwanji.work.gd:5000/loomstatusget/${id}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 setLoom(res.data[0].loomno);
@@ -200,7 +200,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
             setLoading(false);
         } else {
             const data = { loom, design, ud, loomindate };
-            axios.put(`http://api.textilediwanji.com:5000/loomstatusupdate/${id}`, data, { withCredentials: true })
+            axios.put(`https://apitextilediwanji.work.gd:5000/loomstatusupdate/${id}`, data, { withCredentials: true })
                 .then(res => {
                     if (res.data.message === "loom status updated") {
                         successalert("Loom status updated successfully!");
@@ -246,7 +246,7 @@ const LoomStatus = ({ isLoggedIn, setIsLoggedIn }) => {
             erroralert(`Design number is already assigned to loom no '${loomno}'`);
         }
         else {
-            axios.post('http://api.textilediwanji.com:5000/loomstatus', values, { withCredentials: true })
+            axios.post('https://apitextilediwanji.work.gd:5000/loomstatus', values, { withCredentials: true })
                 .then(res => {
                     if (res.data.message === "loomstatus") {
                         setSubmitting(false);
