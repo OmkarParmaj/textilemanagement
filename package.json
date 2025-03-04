@@ -51,7 +51,7 @@
     "react-loading-skeleton": "^3.4.0",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "4.9.5",
     "react-to-print": "^3.0.5",
     "react-toastify": "^10.0.5",
     "reactjs-dateformat": "^1.0.0",
