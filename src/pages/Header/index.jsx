@@ -85,14 +85,14 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
 
 
-    const handlelogout = () => {
-        setLoading(true);
-        Cookies.remove('token');
-        setLoading(false);
-        router.push('/login');
+    // const handlelogout = () => {
+    //     setLoading(true);
+    //     Cookies.remove('token');
+    //     setLoading(false);
+    //     router.push('/login');
 
 
-    }
+    // }
 
 
     const auth = Authentication();
